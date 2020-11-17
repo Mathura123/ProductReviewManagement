@@ -56,6 +56,8 @@
                 Console.WriteLine(item);
             }
         }
+        /// <summary>Skips the five records and retrieve else records.</summary>
+        /// <param name="products">The products.</param>
         public void SkipFiveRecords(List<ProductReview> products)
         {
             IEnumerable<ProductReview> skippedRecords = (from product in products
@@ -64,6 +66,20 @@
             foreach (ProductReview product in skippedRecords)
             {
                 Console.WriteLine(product);
+            }
+        }
+        /// <summary>Retrieves the product identifier and reviews.</summary>
+        /// <param name="products">The products.</param>
+        public void ProductIdAndReviewUsingMethodSyntax(List<ProductReview> products)
+        {
+            var retriveProducts = products.GroupBy(x => x.ProductID).Select(x => new
+            {
+                productId = x.Key,
+                reviews = String.Join(",", x.Select(z => z.Review))
+            });
+            foreach (var item in retriveProducts)
+            {
+                Console.WriteLine(item);
             }
         }
     }
