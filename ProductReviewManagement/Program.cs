@@ -20,7 +20,7 @@ namespace ProductReviewManagement
                 new ProductReview(){ProductID=8,UserID=1,Rating=1,Review="Good",IsLike=false},
                 new ProductReview(){ProductID=8,UserID=1,Rating=9,Review="nice",IsLike=true},
                 new ProductReview(){ProductID=2,UserID=1,Rating=10,Review="nice",IsLike=true},
-                new ProductReview(){ProductID=10,UserID=1,Rating=8,Review="nice",IsLike=true},
+                new ProductReview(){ProductID=9,UserID=1,Rating=8,Review="nice",IsLike=true},
                 new ProductReview(){ProductID=11,UserID=1,Rating=3,Review="nice",IsLike=true}
             };
             //foreach(ProductReview product in productReviewList)
@@ -28,7 +28,8 @@ namespace ProductReviewManagement
             //    Console.WriteLine(product);
             //}
             Management objManagement = new Management();
-            objManagement.RetriveTopRecords(productReviewList);
+            //objManagement.RetrieveTopRecords(productReviewList);
+            objManagement.RetrieveSelectedRecords(productReviewList);
         }
     }
 }
