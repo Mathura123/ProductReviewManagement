@@ -28,7 +28,7 @@ namespace ProductReviewManagement
             //    Console.WriteLine(product);
             //}
             Management objManagement = new Management();
-            objManagement.RetriveTopRecords(productReviewList);
+            objManagement.RetrieveTopRecords(productReviewList);
         }
     }
 }

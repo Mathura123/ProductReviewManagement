@@ -7,7 +7,7 @@ namespace ProductReviewManagement
 {
     public class Management
     {
-        public void RetriveTopRecords(List<ProductReview> products)
+        public void RetrieveTopRecords(List<ProductReview> products)
         {
             IEnumerable<ProductReview> topRecords = (from product in products
                                                      orderby product.Rating descending
