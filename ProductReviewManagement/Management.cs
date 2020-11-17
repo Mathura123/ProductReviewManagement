@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-
-namespace ProductReviewManagement
+﻿namespace ProductReviewManagement
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Management
     {
         /// <summary>Retrieves the top records.</summary>
@@ -14,20 +13,31 @@ namespace ProductReviewManagement
             IEnumerable<ProductReview> topRecords = (from product in products
                                                      orderby product.Rating descending
                                                      select product).Take(3);
-            foreach(ProductReview product in topRecords)
+            foreach (ProductReview product in topRecords)
             {
                 Console.WriteLine(product);
             }
         }
-        /// <summary>Retireves selected records.</summary>
-        /// <param name="listProductReview">The list product review.</param>
-        public void SelectedRecords(List<ProductReview> listProductReview)
+        /// <summary>Retrieves the selected records.</summary>
+        /// <param name="products">The products.</param>
+        public void RetrieveSelectedRecords(List<ProductReview> products)
         {
-            var recordData = from productReviews in listProductReview
-                             where (productReviews.ProductID == 1 || productReviews.ProductID == 4 || productReviews.ProductID == 9)
-                             && productReviews.Rating > 3
-                             select productReviews;
-            foreach (var product in recordData)
+            IEnumerable<ProductReview> selectedRecords = from product in products
+                                                         where product.Rating > 3 && (product.ProductID == 1 || product.ProductID == 4 || product.ProductID == 9)
+                                                         select product;
+            foreach (ProductReview product in selectedRecords)
+            {
+                Console.WriteLine(product);
+            }
+        }
+        /// <summary>Gives count of reviews for each product.</summary>
+        /// <param name="products">The products.</param>
+        public void ReviewCountOnEachProduct(List<ProductReview> products)
+        {
+            var countByProduct = from product in products
+                                  group product by product.ProductID into productGp
+                                  select new { productId = productGp.Key, productCount = productGp.Count() };
+            foreach (var product in countByProduct)
             {
                 Console.WriteLine(product);
             }

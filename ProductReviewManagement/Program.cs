@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ProductReviewManagement
+﻿namespace ProductReviewManagement
 {
+    using System;
+    using System.Collections.Generic;
+
     class Program
     {
         static void Main(string[] args)
@@ -20,7 +20,7 @@ namespace ProductReviewManagement
                 new ProductReview(){ProductID=8,UserID=1,Rating=1,Review="Good",IsLike=false},
                 new ProductReview(){ProductID=8,UserID=1,Rating=9,Review="nice",IsLike=true},
                 new ProductReview(){ProductID=2,UserID=1,Rating=10,Review="nice",IsLike=true},
-                new ProductReview(){ProductID=10,UserID=1,Rating=8,Review="nice",IsLike=true},
+                new ProductReview(){ProductID=9,UserID=1,Rating=8,Review="nice",IsLike=true},
                 new ProductReview(){ProductID=11,UserID=1,Rating=3,Review="nice",IsLike=true}
             };
             //foreach(ProductReview product in productReviewList)
@@ -29,7 +29,8 @@ namespace ProductReviewManagement
             //}
             Management objManagement = new Management();
             //objManagement.RetrieveTopRecords(productReviewList);
-            objManagement.SelectedRecords(productReviewList);
+            //objManagement.RetrieveSelectedRecords(productReviewList);
+            objManagement.ReviewCountOnEachProduct(productReviewList);
         }
     }
 }
