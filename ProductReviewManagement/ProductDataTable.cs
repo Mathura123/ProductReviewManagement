@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace ProductReviewManagement
 {
-    class ProductDataTable
+    public class ProductDataTable
     {
-        private static DataTable table = new DataTable("productDataTable");
+        public static DataTable table = new DataTable("productDataTable");
         
         /// <summary>Creates the data table from given products list.</summary>
         /// <param name="products">The products list.</param>

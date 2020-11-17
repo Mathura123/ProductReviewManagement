@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Linq;
 
     public class Management
@@ -35,8 +36,8 @@
         public void ReviewCountOnEachProduct(List<ProductReview> products)
         {
             var countByProduct = from product in products
-                                  group product by product.ProductID into productGp
-                                  select new { productId = productGp.Key, productCount = productGp.Count() };
+                                 group product by product.ProductID into productGp
+                                 select new { productId = productGp.Key, productCount = productGp.Count() };
             foreach (var product in countByProduct)
             {
                 Console.WriteLine(product);
@@ -48,10 +49,14 @@
         {
             var retriveProducts = from product in products
                                   group product by product.ProductID into productGp
-                                  select new { productId = productGp.Key, review = String.Join(",",from product in products
-                                                                                                   where product.ProductID == productGp.Key
-                                                                                                   select product.Review)};
-            foreach(var item in retriveProducts)
+                                  select new
+                                  {
+                                      productId = productGp.Key,
+                                      review = String.Join(",", from product in products
+                                                                where product.ProductID == productGp.Key
+                                                                select product.Review)
+                                  };
+            foreach (var item in retriveProducts)
             {
                 Console.WriteLine(item);
             }
@@ -61,8 +66,8 @@
         public void SkipFiveRecords(List<ProductReview> products)
         {
             IEnumerable<ProductReview> skippedRecords = (from product in products
-                                                     orderby product.Rating descending
-                                                     select product).Skip(5);
+                                                         orderby product.Rating descending
+                                                         select product).Skip(5);
             foreach (ProductReview product in skippedRecords)
             {
                 Console.WriteLine(product);
@@ -80,6 +85,17 @@
             foreach (var item in retriveProducts)
             {
                 Console.WriteLine(item);
+            }
+        }
+        /// <summary>Retrieves the records from DataTable with true isLike.</summary>
+        public void RetrieveRecordsFromDataTableWithIsLike()
+        {
+            IEnumerable<DataRow> isLikeProducts = from product in ProductDataTable.table.AsEnumerable()
+                                                  where product.Field<bool>("IsLike") == true
+                                                  select product;
+            foreach(DataRow row in isLikeProducts)
+            {
+                Console.WriteLine((ProductReview)row);
             }
         }
     }

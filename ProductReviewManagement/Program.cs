@@ -28,15 +28,10 @@
             //    Console.WriteLine(product);
             //}
             Management objManagement = new Management();
-            //objManagement.RetrieveTopRecords(productReviewList);
-            //objManagement.RetrieveSelectedRecords(productReviewList);
-            //objManagement.ReviewCountOnEachProduct(productReviewList);
-            //objManagement.RetrieveProductIdAndReview(productReviewList);
-            //objManagement.SkipFiveRecords(productReviewList);
-            //objManagement.ProductIdAndReviewUsingMethodSyntax(productReviewList);
             ProductDataTable obj = new ProductDataTable();
             obj.CreateDataTable(productReviewList);
-            ProductDataTable.ShowTable();
+            //ProductDataTable.ShowTable();
+            objManagement.RetrieveRecordsFromDataTableWithIsLike();
         }
     }
 }
