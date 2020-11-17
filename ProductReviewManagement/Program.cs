@@ -33,7 +33,10 @@
             //objManagement.ReviewCountOnEachProduct(productReviewList);
             //objManagement.RetrieveProductIdAndReview(productReviewList);
             //objManagement.SkipFiveRecords(productReviewList);
-            objManagement.ProductIdAndReviewUsingMethodSyntax(productReviewList);
+            //objManagement.ProductIdAndReviewUsingMethodSyntax(productReviewList);
+            ProductDataTable obj = new ProductDataTable();
+            obj.CreateDataTable(productReviewList);
+            ProductDataTable.ShowTable();
         }
     }
 }
