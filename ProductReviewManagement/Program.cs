@@ -31,8 +31,9 @@
             ProductDataTable obj = new ProductDataTable();
             obj.CreateDataTable(productReviewList);
             //ProductDataTable.ShowTable();
-            objManagement.RetrieveRecordsFromDataTableWithIsLike();
-            objManagement.GetAvgRatings();
+            //objManagement.RetrieveRecordsFromDataTableWithIsLike();
+            //objManagement.GetAvgRatings();
+            objManagement.GetProductsWithNiceReview();
         }
     }
 }

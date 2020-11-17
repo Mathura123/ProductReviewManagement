@@ -109,5 +109,16 @@
                 Console.WriteLine(ratings);
             }
         }
+        /// <summary>Gets the products with nice review.</summary>
+        public void GetProductsWithNiceReview()
+        {
+            var avgRatings = from product in ProductDataTable.table.AsEnumerable()
+                             where product.Field<string>("Review").ToLower()== "nice"
+                             select product;
+            foreach (var ratings in avgRatings)
+            {
+                Console.WriteLine((ProductReview)ratings);
+            }
+        }
     }
 }
