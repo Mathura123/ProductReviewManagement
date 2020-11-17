@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-
-namespace ProductReviewManagement
+﻿namespace ProductReviewManagement
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Management
     {
+        /// <summary>Retrieves the top records.</summary>
+        /// <param name="products">The products.</param>
         public void RetrieveTopRecords(List<ProductReview> products)
         {
             IEnumerable<ProductReview> topRecords = (from product in products
@@ -17,6 +18,8 @@ namespace ProductReviewManagement
                 Console.WriteLine(product);
             }
         }
+        /// <summary>Retrieves the selected records.</summary>
+        /// <param name="products">The products.</param>
         public void RetrieveSelectedRecords(List<ProductReview> products)
         {
             IEnumerable<ProductReview> selectedRecords = from product in products
@@ -27,6 +30,8 @@ namespace ProductReviewManagement
                 Console.WriteLine(product);
             }
         }
+        /// <summary>Gives count of reviews for each product.</summary>
+        /// <param name="products">The products.</param>
         public void ReviewCountOnEachProduct(List<ProductReview> products)
         {
             var countByProduct = from product in products
