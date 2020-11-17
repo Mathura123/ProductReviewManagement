@@ -29,7 +29,8 @@ namespace ProductReviewManagement
             //}
             Management objManagement = new Management();
             //objManagement.RetrieveTopRecords(productReviewList);
-            objManagement.RetrieveSelectedRecords(productReviewList);
+            //objManagement.RetrieveSelectedRecords(productReviewList);
+            objManagement.ReviewCountOnEachProduct(productReviewList);
         }
     }
 }

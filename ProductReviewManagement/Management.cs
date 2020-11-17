@@ -22,7 +22,17 @@ namespace ProductReviewManagement
             IEnumerable<ProductReview> selectedRecords = from product in products
                                                          where product.Rating > 3 && (product.ProductID == 1 || product.ProductID == 4 || product.ProductID == 9)
                                                          select product;
-            foreach(ProductReview product in selectedRecords)
+            foreach (ProductReview product in selectedRecords)
+            {
+                Console.WriteLine(product);
+            }
+        }
+        public void ReviewCountOnEachProduct(List<ProductReview> products)
+        {
+            var countByProduct = from product in products
+                                  group product by product.ProductID into productGp
+                                  select new { productId = productGp.Key, productCount = productGp.Count() };
+            foreach (var product in countByProduct)
             {
                 Console.WriteLine(product);
             }
