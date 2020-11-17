@@ -32,6 +32,7 @@
             obj.CreateDataTable(productReviewList);
             //ProductDataTable.ShowTable();
             objManagement.RetrieveRecordsFromDataTableWithIsLike();
+            objManagement.GetAvgRatings();
         }
     }
 }

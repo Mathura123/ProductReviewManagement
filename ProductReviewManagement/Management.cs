@@ -98,5 +98,16 @@
                 Console.WriteLine((ProductReview)row);
             }
         }
+        /// <summary>Gets the average ratings for every product.</summary>
+        public void GetAvgRatings()
+        {
+            var avgRatings = from product in ProductDataTable.table.AsEnumerable()
+                             group product by product.Field<int>("ProductId") into productGrp
+                             select new { productId = productGrp.Key, average = Math.Round(productGrp.Average(x=>x.Field<int>("Rating")),2) };
+            foreach(var ratings in avgRatings)
+            {
+                Console.WriteLine(ratings);
+            }
+        }
     }
 }
