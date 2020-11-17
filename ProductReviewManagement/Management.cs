@@ -42,5 +42,19 @@
                 Console.WriteLine(product);
             }
         }
+        /// <summary>Retrieves the product identifier and reviews.</summary>
+        /// <param name="products">The products.</param>
+        public void RetrieveProductIdAndReview(List<ProductReview> products)
+        {
+            var retriveProducts = from product in products
+                                  group product by product.ProductID into productGp
+                                  select new { productId = productGp.Key, review = String.Join(",",from product in products
+                                                                                                   where product.ProductID == productGp.Key
+                                                                                                   select product.Review)};
+            foreach(var item in retriveProducts)
+            {
+                Console.WriteLine(item);
+            }
+        }
     }
 }

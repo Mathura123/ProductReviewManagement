@@ -16,7 +16,7 @@
                 new ProductReview(){ProductID=3,UserID=1,Rating=5,Review="Good",IsLike=true},
                 new ProductReview(){ProductID=4,UserID=1,Rating=6,Review="Good",IsLike=false},
                 new ProductReview(){ProductID=5,UserID=1,Rating=2,Review="nice",IsLike=true},
-                new ProductReview(){ProductID=6,UserID=1,Rating=1,Review="bas",IsLike=true},
+                new ProductReview(){ProductID=8,UserID=1,Rating=1,Review="bas",IsLike=true},
                 new ProductReview(){ProductID=8,UserID=1,Rating=1,Review="Good",IsLike=false},
                 new ProductReview(){ProductID=8,UserID=1,Rating=9,Review="nice",IsLike=true},
                 new ProductReview(){ProductID=2,UserID=1,Rating=10,Review="nice",IsLike=true},
@@ -30,7 +30,8 @@
             Management objManagement = new Management();
             //objManagement.RetrieveTopRecords(productReviewList);
             //objManagement.RetrieveSelectedRecords(productReviewList);
-            objManagement.ReviewCountOnEachProduct(productReviewList);
+            //objManagement.ReviewCountOnEachProduct(productReviewList);
+            objManagement.RetrieveProductIdAndReview(productReviewList);
         }
     }
 }
