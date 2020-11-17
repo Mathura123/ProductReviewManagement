@@ -56,5 +56,15 @@
                 Console.WriteLine(item);
             }
         }
+        public void SkipFiveRecords(List<ProductReview> products)
+        {
+            IEnumerable<ProductReview> skippedRecords = (from product in products
+                                                     orderby product.Rating descending
+                                                     select product).Skip(5);
+            foreach (ProductReview product in skippedRecords)
+            {
+                Console.WriteLine(product);
+            }
+        }
     }
 }

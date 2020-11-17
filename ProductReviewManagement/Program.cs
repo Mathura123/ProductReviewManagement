@@ -31,7 +31,8 @@
             //objManagement.RetrieveTopRecords(productReviewList);
             //objManagement.RetrieveSelectedRecords(productReviewList);
             //objManagement.ReviewCountOnEachProduct(productReviewList);
-            objManagement.RetrieveProductIdAndReview(productReviewList);
+            //objManagement.RetrieveProductIdAndReview(productReviewList);
+            objManagement.SkipFiveRecords(productReviewList);
         }
     }
 }
