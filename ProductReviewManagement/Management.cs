@@ -120,5 +120,17 @@
                 Console.WriteLine((ProductReview)ratings);
             }
         }
+        /// <summary>Gets the record for a particular user.</summary>
+        /// <param name="products">The products list.</param>
+        public void GetRecordForAUser(List<ProductReview> products)
+        {
+            IEnumerable<ProductReview> reviewsByAUser = from product in products
+                                                          where product.UserID == 10
+                                                          select product;
+            foreach(ProductReview product in reviewsByAUser)
+            {
+                Console.WriteLine(product);
+            }
+        }
     }
 }
